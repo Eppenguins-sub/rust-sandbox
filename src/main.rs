@@ -18,7 +18,7 @@ trait SplitParse<T: FromStr> {
 
 impl<T: FromStr> SplitParse<T> for String {
     fn split_parse(&self) -> Vec<T> {
-        Box::new(self.split_whitespace().flat_map(str::parse::<T>)).collect::<Vec<T>>()
+        self.split_whitespace().flat_map(str::parse::<T>).collect::<Vec<T>>()
     }
 }
 
